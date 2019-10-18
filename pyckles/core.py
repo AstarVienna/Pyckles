@@ -23,9 +23,9 @@ def load_catalog(cat_name, use_cache=True):
         cat_filename = cat_tbl["filename"][cat_ii[0]]
         cat_path = download_file(SERVER_URL+cat_filename, cache=use_cache)
         cat = fits.open(cat_path)
+        cat[0].header["FILENAME"] = cat_path
     elif len(cat_ii) > 1:
         print(f"Ambiguous catalogue name: {cat_name} \n {cat_tbl}")
         cat = None
 
     return cat
-
