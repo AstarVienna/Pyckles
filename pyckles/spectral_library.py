@@ -1,7 +1,6 @@
 import warnings
 import numpy as np
 from astropy.table import Table
-from astropy.io import ascii, fits
 
 from .core import load_catalog
 
@@ -44,12 +43,5 @@ class SpectralLibrary:
 
         return spec
 
-
-
-
-
-
-
-
-
-
+    def __getitem__(self, item):
+        return self.__getattr__(item)
