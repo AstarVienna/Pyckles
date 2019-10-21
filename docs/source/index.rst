@@ -53,6 +53,7 @@ wavelength and flux information is contained in the ``.data`` attribute of the
 returned object:
 
 .. plot::
+   :include-source:
 
    from matplotlib import pyplot as plt
    import pyckles

@@ -37,7 +37,7 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.todo',
               'sphinx.ext.mathjax',
               'sphinx.ext.viewcode',
-              'matplotlib.sphinxext.only_directives',
+              # 'matplotlib.sphinxext.only_directives',
               'matplotlib.sphinxext.plot_directive',
               'numpydoc']
 
