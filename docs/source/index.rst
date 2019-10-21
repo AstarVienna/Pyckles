@@ -62,7 +62,7 @@ returned object:
    plt.plot(spec_lib.A0V.data["wavelength"],
                 spec_lib.A0V.data["flux"])
    plt.plot(spec_lib["G2V"].data["wavelength"],
-                spec_lib.["G2V"].data["flux"])
+                spec_lib["G2V"].data["flux"])
 
 
 Alternatively, if we have ``synphot`` installed, we can set tell the
