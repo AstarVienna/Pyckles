@@ -1,6 +1,0 @@
-include Armazones/*
-include ELT/*
-include MAORY/*
-include MICADO/*
-include SimpleCADO/*
-include test_package/*

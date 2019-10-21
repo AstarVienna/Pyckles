@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""IRDB"""
+"""Pyckles"""
 
 from distutils.core import setup
 import os
@@ -23,13 +23,13 @@ def create_manifest():
 
 
 def setup_package():
-    setup(name = 'IRDB',
+    setup(name = 'Pyckles',
           version = VERSION,
-          description = "Instrument package database",
+          description = "Simple interface to the Pickles stellar catalogue",
           author = "Kieran Leschinski",
           author_email = "kieran.leschinski@unive.ac.at",
           url = "http://homepage.univie.ac.at/kieran.leschinski/",
-          packages = ["irdb/tests"],
+          packages = [],
           )
 
 
