@@ -49,19 +49,20 @@ or as an attribute::
    work - use the item call: ``spec_lib["my spec"]``
 
 Spectra are returned as ``astropy.fits.BinTableHDU`` objects, and so the
-wavelength and flux information is contained in the ``.data`` attrribute of the
-returned object::
+wavelength and flux information is contained in the ``.data`` attribute of the
+returned object:
 
 .. plot::
 
-   >>> from matplotlib import pyplot as plt
-   >>> import pyckles
-   >>> spec_lib = pyckles.SpectralLibrary("pickles")
+   from matplotlib import pyplot as plt
+   import pyckles
+   spec_lib = pyckles.SpectralLibrary("pickles")
 
-   >>> plt.plot(spec_lib.A0V.data["wavelength"],
+   plt.plot(spec_lib.A0V.data["wavelength"],
                 spec_lib.A0V.data["flux"])
-   >>> plt.plot(spec_lib["G2V"].data["wavelength"],
+   plt.plot(spec_lib["G2V"].data["wavelength"],
                 spec_lib.["G2V"].data["flux"])
+
 
 Alternatively, if we have ``synphot`` installed, we can set tell the
 ``SpectralLibrary`` to return the spectra as ``synphot.SourceSpectrum`` objects
