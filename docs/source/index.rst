@@ -24,7 +24,7 @@ To list which catalogues are available, call ``get_catalog_list``::
 To access any of the spectra in the library, we need to create a
 ``SpectralLibrary`` object using the name of one of the available libraries::
 
-   spec_lib = pyckles.SpectralLibrary("pickles")
+   >>> spec_lib = pyckles.SpectralLibrary("pickles")
 
 To see a list of all the spectra in the catalogue, use the ``available_spectra``
 attribute::
@@ -45,13 +45,20 @@ or as an attribute::
 
    >>> a0v = spec_lib.A0V
 
-.. note:: If there there is a space in the name, the attribute call will not work
+.. note:: If there there is a space in the name, the attribute call will not
+   work - use the item call: ``spec_lib["my spec"]``
 
 Spectra are returned as ``astropy.fits.BinTableHDU`` objects, and so the
 wavelength and flux information is contained in the ``.data`` attrribute of the
 returned object::
 
+.. plot::
+   :include-source:
+
    >>> from matplotlib import pyplot as plt
+   >>> import pyckles
+   >>> spec_lib = pyckles.SpectralLibrary("pickles")
+
    >>> plt.plot(spec_lib.A0V.data["wavelength"],
                 spec_lib.A0V.data["flux"])
    >>> plt.plot(spec_lib["G2V"].data["wavelength"],
