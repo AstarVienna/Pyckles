@@ -1,14 +1,14 @@
-Welcome to Pyckles's documentation!
-===================================
+Welcome to the Pyckles documentation!
+=====================================
 
 Pyckles is a super simple, light-weight interface to the Pickles (1998)
 catalogue of stellar spectra.
 
-.. note:: The package was originally intended only for the Pickles catalogue,
-   but it now also has access to the Brown (2014) galaxy spectra catalogue
-
 Which spectra are available
 ---------------------------
+
+.. note:: The package was originally intended only for the Pickles catalogue,
+   but it now also has access to the Brown (2014) galaxy spectra catalogue
 
 To list which catalogues are available, call ``get_catalog_list``::
 
@@ -48,9 +48,24 @@ or as an attribute::
 .. note:: If there there is a space in the name, the attribute call will not
    work - use the item call: ``spec_lib["my spec"]``
 
-Spectra are returned as ``astropy.fits.BinTableHDU`` objects, and so the
-wavelength and flux information is contained in the ``.data`` attribute of the
-returned object:
+By default Pyckles returns spectra as ``astropy.fits.BinTableHDU`` objects,
+however depending on the use case, Pyckles can return spectra in any one of the
+following formats. To change the way spectra are returned, we need to set the
+``meta`` parameter in the ``SpectralLibrary`` object::
+
+    >>> spec_lib.meta["return_style"] = "synphot"      # default is "fits"
+
+Acceptable settings are:
+
+* ``fits``: returns spectra as ``fits.BinTableHDU`` objects. ``wavelength`` and
+  ``flux`` information is contained in the ``.data`` attribute of the ``HDU``
+* ``synphot``: returns the spectra as ``synphot.SourceSpectrum`` objects
+* ``quantity``: returns the spectra as a tuple of two ``astropy.Quantity`` array
+  objects in the format ``(wavelength, flux)``
+* ``array``: returns the spectra as a tuple of two ``numpy.ndarray`` objects in
+  the format ``(wavelength, flux)``. The units here are those which were used in
+  the FITS library (normally ``angstrom`` and ``erg s-1 cm-2 angstrom-1``)
+
 
 .. plot::
    :include-source:
@@ -59,17 +74,8 @@ returned object:
    import pyckles
    spec_lib = pyckles.SpectralLibrary("pickles")
 
-   plt.plot(spec_lib.A0V.data["wavelength"],
-                spec_lib.A0V.data["flux"])
-   plt.plot(spec_lib["G2V"].data["wavelength"],
-                spec_lib["G2V"].data["flux"])
-
-
-Alternatively, if we have ``synphot`` installed, we can set tell the
-``SpectralLibrary`` to return the spectra as ``synphot.SourceSpectrum`` objects
-by setting the ``.meta["return_style"]`` property to ``synphot``::
-
-   >>> spec_lib.meta["return_style"] = "synphot"      # default is "fits"
+   plt.plot(spec_lib.A0V.data["wavelength"], spec_lib.A0V.data["flux"])
+   plt.plot(spec_lib["G2V"].data["wavelength"], spec_lib["G2V"].data["flux"])
 
 
 Adding libraries
@@ -100,14 +106,14 @@ Index table extensions
 The first extension should contain a table with (at a minimum) the following
 columns:
 
-========= ====
-extension name
---------- ----
-X         A0V
-X+1       A0III
-...
-X+m       M9V
-========= ====
+=== =====
+ext name
+--- -----
+X   A0V
+X+1 A0III
+... ...
+X+m M9V
+=== =====
 
 Additional spectra index tables can be included, but this means that all index
 tables must be updated to keep the extension column pointing to the correct
