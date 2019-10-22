@@ -4,6 +4,12 @@ Welcome to the Pyckles documentation!
 Pyckles is a super simple, light-weight interface to the Pickles (1998)
 catalogue of stellar spectra.
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   Reference API <reference/pyckles>
+
 Which spectra are available
 ---------------------------
 
@@ -147,10 +153,3 @@ taken care of. If not, the following header information should be included::
     TUNIT2  = 'Angstrom-1 cm-1 erg s-1'
 
 where the ``TUNITn`` keywords are in readable by ``astropy.units``.
-
-
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-

@@ -45,6 +45,7 @@ extensions = ['sphinx.ext.autodoc',
 
 apidoc_module_dir = os.path.abspath('../../')
 apidoc_output_dir = 'reference'
+apidoc_excluded_paths = ['tests']
 apidoc_separate_modules = True
 
 # Add any paths that contain templates here, relative to this directory.
