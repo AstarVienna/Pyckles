@@ -4,6 +4,11 @@ Welcome to the Pyckles documentation!
 Pyckles is a super simple, light-weight interface to the Pickles (1998)
 catalogue of stellar spectra
 
+.. image:: https://travis-ci.org/astronomyk/Pyckles.svg?branch=master
+    :target: https://travis-ci.org/astronomyk/Pyckles
+.. image:: https://readthedocs.org/projects/pyckles/badge/?version=latest
+    :target: https://pyckles.readthedocs.io/en/latest/?badge=latest
+
 .. plot::
 
     import numpy as np
@@ -31,7 +36,6 @@ catalogue of stellar spectra
    :caption: Contents:
 
     Home <index>
-    API <reference/pyckles>
 
 
 Which spectra are available
@@ -42,24 +46,32 @@ Which spectra are available
 
 To list which catalogues are available, call ``get_catalog_list``::
 
-   >>> import pyckles
-   >>> pyckles.get_catalog_list()
-   <Table length=2>
+    >>> import pyckles
+    >>> pyckles.get_catalog_list()
+    <Table length=2>
      name    type        filename
      str7    str7         str19
-   ------- ------- -------------------
-   pickles stellar pickles98_full.fits
+    ------- ------- -------------------
+    pickles stellar pickles98_full.fits
      brown  galaxy   brown14_full.fits
 
 To access any of the spectra in the library, we need to create a
 ``SpectralLibrary`` object using the name of one of the available libraries::
 
-   >>> spec_lib = pyckles.SpectralLibrary("pickles")
+    >>> spec_lib = pyckles.SpectralLibrary("pickles")
 
 To see a list of all the spectra in the catalogue, use the ``available_spectra``
 attribute::
 
-   >>> spec_lib.available_spectra
+    >>> spec_lib.available_spectra
+    <Column name='name' dtype='str5' length=131>
+      A0I
+    A0III
+     A0IV
+      ...
+    K2III
+    K3III
+    K4III
 
 Accessing spectra
 -----------------
@@ -177,3 +189,23 @@ taken care of. If not, the following header information should be included::
     TUNIT2  = 'Angstrom-1 cm-1 erg s-1'
 
 where the ``TUNITn`` keywords are in readable by ``astropy.units``.
+
+
+Contact
+-------
+If you find any bugs with the code, or have suggestions for how the code can
+be improved, please open an issue on github: https://github.com/astronomyk/Pyckles
+
+If you are feeling adventurous, you're more than welcome to play with the code
+and submit a pull request with any changes you deem necessary.
+
+We're more than happy for this to be incorporated into the astropy framework,
+if anyone feels like taking on that challenge...
+
+Written by Kieran Leschinski
+
+.. image:: https://github.com/favicon.ico
+    :target: https://github.com/favicon.ico
+    :alt: Github:
+[https://github.com/astronomyk](https://github.com/astronomyk)
+
