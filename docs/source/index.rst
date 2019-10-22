@@ -36,7 +36,7 @@ catalogue of stellar spectra
    :caption: Contents:
 
     Home <index>
-
+    API <reference/pyckles
 
 Which spectra are available
 ---------------------------
