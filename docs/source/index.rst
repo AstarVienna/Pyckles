@@ -30,6 +30,9 @@ catalogue of stellar spectra
    :maxdepth: 2
    :caption: Contents:
 
+    Home <index>
+    API <reference/pyckles>
+
 
 Which spectra are available
 ---------------------------
