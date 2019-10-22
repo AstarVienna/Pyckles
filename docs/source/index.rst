@@ -2,7 +2,27 @@ Welcome to the Pyckles documentation!
 =====================================
 
 Pyckles is a super simple, light-weight interface to the Pickles (1998)
-catalogue of stellar spectra::
+catalogue of stellar spectra
+
+.. plot::
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import pyckles
+    spec_lib = pyckles.SpectralLibrary("pickles", return_style="array")
+
+    plt.figure(figsize=(12,3))
+    for clr, spt in zip("ryb", ["M5V", "K2V", "A0V"]):
+        wave, flux = spec_lib[spt]
+        plt.fill_between(wave/1e4, flux/np.max(flux), np.zeros(len(flux)),
+                         color=clr, alpha=0.7, lw=0)
+    plt.semilogx()
+    plt.xlim(0.25, 2.49)
+    plt.ylim(0, 1)
+    plt.gca().get_xaxis().set_visible(False)
+    plt.gca().get_yaxis().set_visible(False)
+
+::
 
     pip install pyckles
 
@@ -10,14 +30,12 @@ catalogue of stellar spectra::
    :maxdepth: 2
    :caption: Contents:
 
-   Home <index>
-   Reference API <reference/pyckles>
 
 Which spectra are available
 ---------------------------
 
 .. note:: The package was originally intended only for the Pickles catalogue,
-   but it now also has access to the Brown (2014) galaxy spectra catalogue
+   but it now also has access to the **Brown (2014)** galaxy spectra catalogue
 
 To list which catalogues are available, call ``get_catalog_list``::
 
