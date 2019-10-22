@@ -205,7 +205,5 @@ if anyone feels like taking on that challenge...
 Written by Kieran Leschinski
 
 .. image:: https://github.com/favicon.ico
-    :target: https://github.com/favicon.ico
-    :alt: Github:
-[https://github.com/astronomyk](https://github.com/astronomyk)
-
+    :target: https://github.com/astronomyk
+    :alt: https://github.com/astronomyk:
