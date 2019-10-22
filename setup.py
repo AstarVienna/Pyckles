@@ -1,38 +1,28 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# Learn more: https://github.com/kennethreitz/setup.py
 """Pyckles"""
 
-from distutils.core import setup
-import os
-from os import path as pth
 
-# Version number
-MAJOR = 0
-MINOR = 1
-ATTR = 'dev1'
+from setuptools import setup, find_packages
 
-VERSION = '%d.%d%s' % (MAJOR, MINOR, ATTR)
+with open('README.md') as f:
+    __readme__ = f.read()
 
+with open('LICENSE') as f:
+    __license__ = f.read()
 
-def create_manifest():
-    pkgs_list = [pkg for pkg in os.listdir("./") if \
-                 pth.isdir(pkg) and pth.exists(pth.join(pkg, f"{pkg}.yaml"))]
-    with open("MANIFEST.in", "w") as f:
-        for pkg_name in pkgs_list:
-            f.write(f"include {pkg_name}/*\n")
-            print(f"Including {pkg_name}")
-
-
-def setup_package():
-    setup(name = 'Pyckles',
-          version = VERSION,
-          description = "Simple interface to the Pickles stellar catalogue",
-          author = "Kieran Leschinski",
-          author_email = "kieran.leschinski@unive.ac.at",
-          url = "http://homepage.univie.ac.at/kieran.leschinski/",
-          packages = [],
-          )
-
-
-if __name__ == '__main__':
-    create_manifest()
-    setup_package()
+setup(
+    name='pyckles',
+    version='0.1',
+    description="Simple interface to the Pickles 1998 stellar spectra catalogue",
+    long_description=__readme__,
+    long_description_content_type='text/markdown',
+    author='Kieran Leschinski',
+    author_email='kieran.leschinski@univie.ac.at',
+    url='https://github.com/astronomyk/Pyckles',
+    license="GNU General Public License",
+    include_package_data=True,
+    packages=find_packages(exclude=('tests', 'data')),
+    install_requires=['numpy', 'astropy', 'matplotlib', 'synphot']
+    )

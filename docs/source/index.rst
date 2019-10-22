@@ -2,12 +2,15 @@ Welcome to the Pyckles documentation!
 =====================================
 
 Pyckles is a super simple, light-weight interface to the Pickles (1998)
-catalogue of stellar spectra.
+catalogue of stellar spectra::
+
+    pip install pyckles
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   Home <index>
    Reference API <reference/pyckles>
 
 Which spectra are available
