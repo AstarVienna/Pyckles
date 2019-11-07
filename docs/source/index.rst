@@ -9,6 +9,16 @@ catalogue of stellar spectra
 .. image:: https://readthedocs.org/projects/pyckles/badge/?version=latest
     :target: https://pyckles.readthedocs.io/en/latest/?badge=latest
 
+|
+
+.. image:: https://img.shields.io/badge/Python-2.7-red.svg
+.. image:: https://img.shields.io/badge/Python-3.4-red.svg
+.. image:: https://img.shields.io/badge/Python-3.5-green.svg
+.. image:: https://img.shields.io/badge/Python-3.6-green.svg
+.. image:: https://img.shields.io/badge/Python-3.7-green.svg
+.. image:: https://img.shields.io/badge/Python-3.8-green.svg
+
+
 .. plot::
 
     import numpy as np
