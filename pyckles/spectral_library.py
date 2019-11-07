@@ -164,7 +164,8 @@ def spectrum_from_hdu(hdu, return_type="fits"):
         from synphot import Empirical1D, SourceSpectrum
         spec = SourceSpectrum(Empirical1D,
                               points=u.Quantity(wave, wave_unit, copy=False),
-                              lookup_table=u.Quantity(flux, flux_unit, copy=False))
+                              lookup_table=u.Quantity(flux, flux_unit,
+                                                      copy=False))
     else:
         spec = hdu
 
