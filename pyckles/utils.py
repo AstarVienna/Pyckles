@@ -56,7 +56,8 @@ def load_catalog(cat_name, use_cache=True):
     cat_ii = np.where([cat_name.lower() == cat for cat in cat_tbl["name"]])[0]
 
     if len(cat_ii) == 0:
-        print(f"No catalogues were found containing: {cat_name} \n {cat_tbl}")
+        print("No catalogues were found containing: {} \n {}"
+              "".format(cat_name, cat_tbl))
         cat = None
     elif len(cat_ii) == 1:
         cat_filename = cat_tbl["filename"][cat_ii[0]]
@@ -64,7 +65,8 @@ def load_catalog(cat_name, use_cache=True):
         cat = fits.open(cat_path)
         cat[0].header["FILENAME"] = cat_path
     elif len(cat_ii) > 1:
-        print(f"Ambiguous catalogue name: {cat_name} \n {cat_tbl}")
+        print("Ambiguous catalogue name: {} \n {}"
+              "".format(cat_name, cat_tbl))
         cat = None
 
     return cat

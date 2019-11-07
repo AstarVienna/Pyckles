@@ -98,7 +98,8 @@ class SpectralLibrary:
             if self.catalog is not None:
                 self.table = Table(self.catalog[1].data)
             else:
-                warnings.warn(f"Catalogue '{catalog_name}' could not be loaded")
+                warnings.warn("Catalogue '{}' could not be loaded"
+                              "".format(catalog_name))
 
     @property
     def available_spectra(self):
@@ -114,7 +115,8 @@ class SpectralLibrary:
                 spec = spectrum_from_hdu(self.catalog[ext],
                                          self.meta["return_style"])
             else:
-                print(f"Cannot return spectrum for ambiguous name: {item}")
+                print("Cannot return spectrum for ambiguous name: {}"
+                      "".format(item))
         else:
             raise AttributeError
 
