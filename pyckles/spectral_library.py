@@ -154,14 +154,17 @@ def spectrum_from_hdu(hdu, return_type="fits"):
     flux_unit = u.Unit(hdu.header["TUNIT2"])
 
     if return_type.lower() == "quantity":
-        spec = [wave << wave_unit, flux << flux_unit]
+        # only compatible with py >= 3.5 and astropy >= 3.1
+        # spec = [wave << wave_unit, flux << flux_unit]
+        spec = [u.Quantity(wave, wave_unit, copy=False),
+                u.Quantity(flux, flux_unit, copy=False)]
     elif return_type.lower() == "array":
         spec = [wave, flux]
     elif return_type.lower() == "synphot":
         from synphot import Empirical1D, SourceSpectrum
         spec = SourceSpectrum(Empirical1D,
-                              points=wave << wave_unit,
-                              lookup_table=flux << flux_unit)
+                              points=u.Quantity(wave, wave_unit, copy=False),
+                              lookup_table=u.Quantity(flux, flux_unit, copy=False))
     else:
         spec = hdu
 

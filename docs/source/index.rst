@@ -12,8 +12,9 @@ catalogue of stellar spectra
 Minimum requirements:
 
 .. image:: https://img.shields.io/badge/Python-3.5-green.svg
-.. image:: https://img.shields.io/badge/Numpy-1.15.1-green.svg
+.. image:: https://img.shields.io/badge/Numpy-1.13-green.svg
 .. image:: https://img.shields.io/badge/Astropy-3.1-green.svg
+.. image:: https://img.shields.io/badge/Synphot-0.1.2-green.svg
 
 
 .. plot::
