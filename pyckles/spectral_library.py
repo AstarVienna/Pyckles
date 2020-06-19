@@ -170,7 +170,3 @@ def spectrum_from_hdu(hdu, return_type="fits"):
         spec = hdu
 
     return spec
-
-
-
-
