@@ -46,6 +46,13 @@ Minimum requirements:
     Home <index>
     API <reference/pyckles>
 
+.. warning:: 07.07.2020 Update to Brown+14 catalogue
+
+    Some referencing discrepancies were found in the Pyckles version of the
+    Brown+ 2014 galaxy spectra catalogue. To update, please clear your
+    astropy cache with ``astropy.utils.data.clear_download_cache()``.
+
+
 Which spectra are available
 ---------------------------
 
