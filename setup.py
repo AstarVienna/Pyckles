@@ -24,5 +24,5 @@ setup(
     license="GNU General Public License",
     include_package_data=True,
     packages=find_packages(exclude=('tests', 'data')),
-    install_requires=['numpy', 'astropy', 'matplotlib', 'synphot']
+    install_requires=['numpy>=1.16', 'astropy', 'matplotlib', 'synphot']
     )
