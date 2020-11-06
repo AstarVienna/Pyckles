@@ -48,6 +48,9 @@ apidoc_output_dir = 'reference'
 apidoc_excluded_paths = ['tests']
 apidoc_separate_modules = True
 
+plot_html_show_source_link = False
+plot_html_show_formats = False
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 

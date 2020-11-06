@@ -1,5 +1,24 @@
-Welcome to the Pyckles documentation!
-=====================================
+.. plot::
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import pyckles
+    spec_lib = pyckles.SpectralLibrary("pickles", return_style="array")
+
+    plt.figure(figsize=(12,3))
+    for clr, spt in zip("ryb", ["M5V", "K2V", "A0V"]):
+        wave, flux = spec_lib[spt]
+        plt.fill_between(wave/1e4, flux/np.max(flux), np.zeros(len(flux)),
+                         color=clr, alpha=0.7, lw=0)
+
+    plt.text(0.8, 0.4, "Pyckles", fontsize=48, color="2222", verticalalignment="center", horizontalalignment="center")
+
+    plt.semilogx()
+    plt.xlim(0.25, 2.49)
+    plt.ylim(0, 1)
+    plt.gca().get_xaxis().set_visible(False)
+    plt.gca().get_yaxis().set_visible(False)
+
 
 Pyckles is a super simple, light-weight interface to the Pickles (1998)
 catalogue of stellar spectra
@@ -15,25 +34,6 @@ Minimum requirements:
 .. image:: https://img.shields.io/badge/Numpy-1.16-brightgreen.svg
 .. image:: https://img.shields.io/badge/Astropy-3.1-brightgreen.svg
 .. image:: https://img.shields.io/badge/Synphot-0.1.2-brightgreen.svg
-
-
-.. plot::
-
-    import numpy as np
-    import matplotlib.pyplot as plt
-    import pyckles
-    spec_lib = pyckles.SpectralLibrary("pickles", return_style="array")
-
-    plt.figure(figsize=(12,3))
-    for clr, spt in zip("ryb", ["M5V", "K2V", "A0V"]):
-        wave, flux = spec_lib[spt]
-        plt.fill_between(wave/1e4, flux/np.max(flux), np.zeros(len(flux)),
-                         color=clr, alpha=0.7, lw=0)
-    plt.semilogx()
-    plt.xlim(0.25, 2.49)
-    plt.ylim(0, 1)
-    plt.gca().get_xaxis().set_visible(False)
-    plt.gca().get_yaxis().set_visible(False)
 
 ::
 
