@@ -11,7 +11,7 @@
         plt.fill_between(wave/1e4, flux/np.max(flux), np.zeros(len(flux)),
                          color=clr, alpha=0.7, lw=0)
 
-    plt.text(0.8, 0.4, "Pyckles", fontsize=48, color="2222", verticalalignment="center", horizontalalignment="center")
+    plt.text(0.8, 0.4, "Pyckles", fontsize=48, color="w", verticalalignment="center", horizontalalignment="center")
 
     plt.semilogx()
     plt.xlim(0.25, 2.49)
