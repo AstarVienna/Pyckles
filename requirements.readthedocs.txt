@@ -2,7 +2,7 @@ numpy >=1.16
 astropy
 matplotlib
 sphinxcontrib-apidoc
-numpydoc ==0.6.0
-sphinx ==1.6.7
+numpydoc
+sphinx
 synphot
 pyckles
