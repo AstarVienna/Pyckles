@@ -19,9 +19,14 @@
     plt.gca().get_xaxis().set_visible(False)
     plt.gca().get_yaxis().set_visible(False)
 
+|logo| Another tool from the `A* Vienna software team <https://astarvienna.github.io/>`_
 
-Pyckles is a super simple, light-weight interface to the Pickles (1998)
-catalogue of stellar spectra
+.. |logo| image:: https://raw.githubusercontent.com/AstarVienna/astarvienna.github.io/main/logos/star_small_t.png
+   :height: 30px
+   :align: middle
+
+**Pyckles is a super simple, light-weight interface to the Pickles (1998)
+catalogue of stellar spectra**
 
 .. image:: https://travis-ci.org/astronomyk/Pyckles.svg?branch=master
     :target: https://travis-ci.org/astronomyk/Pyckles
