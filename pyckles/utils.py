@@ -3,7 +3,7 @@ from astropy.io import ascii, fits
 from astropy.utils.data import download_file
 
 
-SERVER_URL = "https://www.univie.ac.at/simcado/pyckles/"
+SERVER_URL = "https://scopesim.univie.ac.at/pyckles/"
 
 
 def get_catalog_list(use_cache=True):
