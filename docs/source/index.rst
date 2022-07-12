@@ -60,6 +60,12 @@ Minimum requirements:
     You can clear the astropy cache using
     ``astropy.utils.data.clear_download_cache()``
 
+.. warning:: July 2022: The downloadable content server was retired and the data migrated to a new server.
+
+   Pyckles v0.2 and above have been redirected to a new server URL.
+
+   For older versions, please either upgrade to the latest version (``pip install --upgrade pyckles``), or follow these `instructions to update the server URL <https://astarvienna.github.io/server_upgrade_instructions.html>`_ in the config file.
+
 
 Which spectra are available
 ---------------------------
