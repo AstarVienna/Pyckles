@@ -28,17 +28,10 @@
 **Pyckles is a super simple, light-weight interface to the Pickles (1998)
 catalogue of stellar spectra**
 
-.. image:: https://travis-ci.org/astronomyk/Pyckles.svg?branch=master
-    :target: https://travis-ci.org/astronomyk/Pyckles
+.. image:: https://github.com/AstarVienna/Pyckles/actions/workflows/tests.yml/badge.svg?branch=master
+    :target: https://github.com/AstarVienna/Pyckles/actions
 .. image:: https://readthedocs.org/projects/pyckles/badge/?version=latest
     :target: https://pyckles.readthedocs.io/en/latest/?badge=latest
-
-Minimum requirements:
-
-.. image:: https://img.shields.io/badge/Python-3.5-brightgreen.svg
-.. image:: https://img.shields.io/badge/Numpy-1.16-brightgreen.svg
-.. image:: https://img.shields.io/badge/Astropy-3.1-brightgreen.svg
-.. image:: https://img.shields.io/badge/Synphot-0.1.2-brightgreen.svg
 
 ::
 
@@ -223,7 +216,7 @@ where the ``TUNITn`` keywords are in readable by ``astropy.units``.
 Contact
 -------
 If you find any bugs with the code, or have suggestions for how the code can
-be improved, please open an issue on github: https://github.com/astronomyk/Pyckles
+be improved, please open an issue on github: https://github.com/AstarVienna/Pyckles
 
 If you are feeling adventurous, you're more than welcome to play with the code
 and submit a pull request with any changes you deem necessary.
