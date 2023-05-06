@@ -1,8 +1,0 @@
-numpy >=1.16
-astropy
-matplotlib
-sphinxcontrib-apidoc
-numpydoc
-sphinx
-synphot
-pyckles
