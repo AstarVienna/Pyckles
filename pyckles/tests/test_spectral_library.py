@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import pytest
 import numpy as np
 from astropy.io import fits
@@ -12,17 +14,20 @@ class TestInit:
     def test_initialised_with_nothing(self):
         assert isinstance(SpectralLibrary(), SpectralLibrary)
 
+    @pytest.mark.webtest
     def test_initialises_with_correct_name(self):
         pickles = SpectralLibrary("Pickles")
         assert isinstance(pickles, SpectralLibrary)
         assert isinstance(pickles.table, Table)
 
+    @pytest.mark.webtest
     def test_nothing_loaded_for_wrong_name(self):
         pickles = SpectralLibrary("Bogus")
         assert isinstance(pickles, SpectralLibrary)
         assert pickles.table is None
 
 
+@pytest.mark.webtest
 class TestGetAttr:
     def test_returns_bintablehdu_for_correct_name_attribute_call(self):
         pickles = SpectralLibrary("Pickles")
@@ -53,4 +58,3 @@ class TestGetAttr:
         pickles.meta["return_style"] = "synphot"
         spec = pickles.A0V
         assert isinstance(spec, SourceSpectrum)
-
