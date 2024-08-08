@@ -100,6 +100,7 @@ class SpectralLibrary:
         if catalog_name is not None:
             self.catalog = load_catalog(catalog_name, self.meta["use_cache"])
             if self.catalog is not None:
+                # pylint: disable=maybe-no-member
                 self.table = Table(self.catalog[1].data)
             else:
                 warnings.warn(f"Catalogue '{catalog_name}' could not be loaded")
