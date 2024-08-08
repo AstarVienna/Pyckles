@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+"""Main module."""
+
 import warnings
 import numpy as np
 from astropy.table import Table
@@ -8,11 +11,11 @@ from .utils import load_catalog
 
 class SpectralLibrary:
     """
-    A container for a library of spectra
+    A container for a library of spectra.
 
-    Holds and returns spectra from various catalogues in various python-friendly
-    formats, such as: ``synphot.SourceSpectrum``, ``astropy.Quantity``,
-    ``numpy.ndarray``, and ``fits.BinTableHDU``
+    Holds and returns spectra from various catalogues in various
+    "python-friendly" formats, such as: ``synphot.SourceSpectrum``,
+    ``astropy.Quantity``, ``numpy.ndarray``, and ``fits.BinTableHDU``
 
     Spectra can be accessed by using the attribute syntax::
 
@@ -23,7 +26,7 @@ class SpectralLibrary:
 
         >>> spec_lib["A0V"]
 
-    The returned spectrum is formatted according to the ``meta["return_style"]``
+    The returned spectrum is formatted according to ``meta["return_style"]``
     parameter::
 
         >>> spec_lib.meta["return_style"] = 'fits'
@@ -79,6 +82,7 @@ class SpectralLibrary:
         <synphot.spectrum.SourceSpectrum at 0x251800272e8>
 
     """
+
     def __init__(self, catalog_name=None, **kwargs):
 
         self.catalog_name = catalog_name
@@ -92,7 +96,7 @@ class SpectralLibrary:
         self.load(catalog_name)
 
     def load(self, catalog_name):
-        """ Loads the catalogue for a valid string ``catalog_name`` """
+        """Load the catalogue for a valid string ``catalog_name``."""
         if catalog_name is not None:
             self.catalog = load_catalog(catalog_name, self.meta["use_cache"])
             if self.catalog is not None:
@@ -106,7 +110,7 @@ class SpectralLibrary:
         return self.table["name"]
 
     def __getattr__(self, item):
-        """Looks for item in the 'name' column of self.table"""
+        """Look for item in the 'name' column of `self.table`."""
         spec = None
         if item in self.table["name"]:
             item_ii = np.where(self.table["name"] == item)[0]
@@ -128,7 +132,7 @@ class SpectralLibrary:
 
 def spectrum_from_hdu(hdu, return_type="fits"):
     """
-    Converts a BinTableHDU into the required return_type format
+    Convert a ``BinTableHDU`` into the required `return_type` format.
 
     Parameters
     ----------

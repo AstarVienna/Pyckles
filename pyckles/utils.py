@@ -1,5 +1,8 @@
+# -*- coding: utf-8 -*-
+"""Utility functions."""
+
 import numpy as np
-from astropy.io import ascii, fits
+from astropy.io import fits, ascii as ascii_io
 from astropy.utils.data import download_file
 
 
@@ -8,7 +11,7 @@ SERVER_URL = "https://scopesim.univie.ac.at/pyckles/"
 
 def get_catalog_list(use_cache=True):
     """
-    Returns a list of catalogues based on the server index file
+    Return a list of catalogues based on the server index file.
 
     Parameters
     ----------
@@ -22,13 +25,13 @@ def get_catalog_list(use_cache=True):
 
     """
     fname = download_file(SERVER_URL+"index.dat", cache=use_cache)
-    catalogs = ascii.read(fname)
+    catalogs = ascii_io.read(fname)
     return catalogs
 
 
 def load_catalog(cat_name, use_cache=True):
     """
-    Loads a catalogue file into memory
+    Load a catalogue file into memory.
 
     If ``use_cache=True`` a local copy of the catalogue FITS file is loaded,
     otherwise the catalogue is downloaded from the server.
