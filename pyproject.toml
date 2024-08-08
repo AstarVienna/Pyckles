@@ -1,54 +1,62 @@
-[project]
+[tool.poetry]
 name = "Pyckles"
-version = "0.3-alpha"
-# When updating the version, also
-# - update the date in anisocado/version.py
+version = "0.3.0a0"
 description = "Simple interface to the Pickles 1998 stellar spectra catalogue"
 readme = "README.md"
-requires-python = ">=3.9"
-license = {text = "License :: OSI Approved :: GNU General Public License v3 (GPLv3)"}
-authors = [
-    {name = "Kieran Leschinski", email="kieran.leschinski@unive.ac.at"},
-]
+license = "GPL-3.0-or-later"
+authors = ["Kieran Leschinski <kieran.leschinski@unive.ac.at>"]
 maintainers = [
-    {name = "Kieran Leschinski", email="kieran.leschinski@unive.ac.at"},
-    {name = "Hugo Buddelmeijer", email="hugo@buddelmeijer.nl"},
+    "Kieran Leschinski <kieran.leschinski@unive.ac.at>",
+    "Hugo Buddelmeijer <hugo@buddelmeijer.nl>",
+    "Fabian Haberhauer <fabian.haberhauer@univie.ac.at>",
 ]
-classifiers=[
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+classifiers = [
     "Operating System :: OS Independent",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Astronomy",
 ]
-dependencies = [
-    # Try to keep the dependencies on lower versions that have a wheel
-    # package on PyPI, for minimumdependencies.yml
-    "numpy>=1.26.3",
-    "astropy>=5.3.3",
-    "matplotlib>=3.7.2",
-    "synphot>=1.2.1",
+repository = "https://github.com/AstarVienna/Pyckles/"
+documentation = "https://pyckles.readthedocs.io/"
+
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "^1.26.3"
+astropy = "^5.3.4"
+
+synphot = { version = "^1.2.1", optional = true }
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.3"
+pytest-cov = "^4.1.0"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^5.3.0"
+sphinx-book-theme = "^1.1.0"
+sphinxcontrib-apidoc = "^0.4.0"
+numpydoc = "^1.6.0"
+matplotlib = "^3.7.2"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/AstarVienna/Pyckles/issues"
+
+[tool.poetry.extras]
+syn = ["synphot"]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers"
+markers = [
+    "webtest: marks tests as requiring network (deselect with '-m \"not webtest\"')",
 ]
 
-[project.optional-dependencies]
-dev = [
-    "scipy",
-]
-test = [
-    "pytest>=7.4.3",
-    "pytest-cov",
-]
-docs = [
-    "sphinx>=5.3.0",
-    "sphinx-rtd-theme>=0.5.1",
-    "sphinxcontrib-apidoc",
-    "numpydoc>=1.6.0",
-]
-
-[project.urls]
-"Homepage" = "https://pyckles.readthedocs.io/"
-"Source" = "https://github.com/AstarVienna/Pyckles/"
-"Bug Reports" = "https://github.com/AstarVienna/Pyckles/issues"
-
-[tool.setuptools]
-packages = ["pyckles"]
+[tool.coverage.report]
+omit = ["pyckles/tests/*"]
