@@ -22,10 +22,9 @@ class TestInit:
         assert isinstance(pickles.available_spectra, Column)
 
     @pytest.mark.webtest
-    def test_nothing_loaded_for_wrong_name(self):
-        pickles = SpectralLibrary("Bogus")
-        assert isinstance(pickles, SpectralLibrary)
-        assert pickles.table is None
+    def test_throws_for_wrong_name(self):
+        with pytest.raises(ValueError):
+            SpectralLibrary("Bogus")
 
 
 @pytest.mark.webtest
