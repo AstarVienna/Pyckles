@@ -2,7 +2,6 @@
 """Main module."""
 
 import warnings
-import numpy as np
 from astropy.table import Table
 from astropy import units as u
 
