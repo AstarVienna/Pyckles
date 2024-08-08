@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """Utility functions."""
 
-import numpy as np
 from astropy.io import fits, ascii as ascii_io
 from astropy.utils.data import download_file
 
@@ -26,6 +25,7 @@ def get_catalog_list(use_cache=True):
     """
     fname = download_file(SERVER_URL+"index.dat", cache=use_cache)
     catalogs = ascii_io.read(fname)
+    catalogs.add_index("name", unique=True)
     return catalogs
 
 
@@ -56,18 +56,20 @@ def load_catalog(cat_name, use_cache=True):
     """
     cat_tbl = get_catalog_list(use_cache=use_cache)
 
-    cat_ii = np.where([cat_name.lower() == cat for cat in cat_tbl["name"]])[0]
+    try:
+        cat_filename = cat_tbl.loc[cat_name.lower()]["filename"]
+    except KeyError as err:
+        raise ValueError(
+            f"No catalogues were found containing: '{cat_name}' \n {cat_tbl}"
+        ) from err
 
-    if len(cat_ii) == 0:
-        print(f"No catalogues were found containing: {cat_name} \n {cat_tbl}")
-        cat = None
-    elif len(cat_ii) == 1:
-        cat_filename = cat_tbl["filename"][cat_ii[0]]
-        cat_path = download_file(SERVER_URL+cat_filename, cache=use_cache)
-        cat = fits.open(cat_path)
-        cat[0].header["FILENAME"] = cat_path  # pylint: disable=maybe-no-member
-    elif len(cat_ii) > 1:
-        print("Ambiguous catalogue name: {cat_name} \n {cat_tbl}")
-        cat = None
+    # unique in index should take care of potential duplicates, however check
+    assert isinstance(cat_filename, str), "Duplicates in cat name."
+
+    cat_path = download_file(SERVER_URL+cat_filename, cache=use_cache)
+
+    # TODO: should use context manager for file open...
+    cat = fits.open(cat_path)
+    cat[0].header["FILENAME"] = cat_path  # pylint: disable=maybe-no-member
 
     return cat

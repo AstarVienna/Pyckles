@@ -21,6 +21,6 @@ class TestLoadCatalog:
         assert isinstance(cat, fits.HDUList)
         assert isinstance(cat[6], fits.BinTableHDU)
 
-    def test_returns_none_if_catalog_name_wrong(self):
-        cat = pyk.load_catalog("Bogus")
-        assert cat is None
+    def test_throws_if_catalog_name_wrong(self):
+        with pytest.raises(ValueError):
+            pyk.load_catalog("Bogus")
