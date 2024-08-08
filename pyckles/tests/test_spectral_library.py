@@ -58,3 +58,8 @@ class TestGetAttr:
         pickles.meta["return_style"] = "synphot"
         spec = pickles.A0V
         assert isinstance(spec, SourceSpectrum)
+
+    def test_also_works_for_getitem(self):
+        pickles = SpectralLibrary("Pickles")
+        spec = pickles["A0V"]
+        assert isinstance(spec, fits.BinTableHDU)
