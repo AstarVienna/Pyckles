@@ -34,9 +34,9 @@ class TestGetAttr:
         spec = pickles.A0V
         assert isinstance(spec, fits.BinTableHDU)
 
-    def test_returns_attribute_error_if_spec_name_not_in_catalogue(self):
+    def test_throws_if_spec_name_not_in_catalogue(self):
         pickles = SpectralLibrary("Pickles")
-        with pytest.raises(AttributeError):
+        with pytest.raises(ValueError):
             pickles.ATV
 
     def test_returns_arrays_with_return_style_set_to_array(self):

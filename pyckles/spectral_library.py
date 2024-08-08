@@ -102,6 +102,7 @@ class SpectralLibrary:
             if self.catalog is not None:
                 # pylint: disable=maybe-no-member
                 self.table = Table(self.catalog[1].data)
+                self.table.add_index("name", unique=True)
             else:
                 warnings.warn(f"Catalogue '{catalog_name}' could not be loaded")
 
@@ -110,19 +111,13 @@ class SpectralLibrary:
         return self.table["name"]
 
     def __getattr__(self, item):
-        """Look for item in the 'name' column of `self.table`."""
-        spec = None
-        if item in self.table["name"]:
-            item_ii = np.where(self.table["name"] == item)[0]
-            if len(item_ii) == 1:
-                ext = self.table["ext"][item_ii[0]]
-                spec = spectrum_from_hdu(self.catalog[ext],
-                                         self.meta["return_style"])
-            else:
-                print(f"Cannot return spectrum for ambiguous name: {item}")
-        else:
-            raise AttributeError
+        """Look for `item` in the 'name' column of `self.table`."""
+        try:
+            ext = int(self.table.loc[item]["ext"])
+        except KeyError as err:
+            raise ValueError(f"No spectrum found for name '{item}'") from err
 
+        spec = spectrum_from_hdu(self.catalog[ext], self.meta["return_style"])
         return spec
 
     def __getitem__(self, item):
