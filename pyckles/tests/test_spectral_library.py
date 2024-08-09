@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
+
 import pytest
 import numpy as np
 from astropy.io import fits
-from astropy.table import Table
+from astropy.table import Table, Column
 from astropy import units as u
 from synphot import SourceSpectrum
 
@@ -12,26 +14,29 @@ class TestInit:
     def test_initialised_with_nothing(self):
         assert isinstance(SpectralLibrary(), SpectralLibrary)
 
+    @pytest.mark.webtest
     def test_initialises_with_correct_name(self):
         pickles = SpectralLibrary("Pickles")
         assert isinstance(pickles, SpectralLibrary)
         assert isinstance(pickles.table, Table)
+        assert isinstance(pickles.available_spectra, Column)
 
-    def test_nothing_loaded_for_wrong_name(self):
-        pickles = SpectralLibrary("Bogus")
-        assert isinstance(pickles, SpectralLibrary)
-        assert pickles.table is None
+    @pytest.mark.webtest
+    def test_throws_for_wrong_name(self):
+        with pytest.raises(ValueError):
+            SpectralLibrary("Bogus")
 
 
+@pytest.mark.webtest
 class TestGetAttr:
     def test_returns_bintablehdu_for_correct_name_attribute_call(self):
         pickles = SpectralLibrary("Pickles")
         spec = pickles.A0V
         assert isinstance(spec, fits.BinTableHDU)
 
-    def test_returns_attribute_error_if_spec_name_not_in_catalogue(self):
+    def test_throws_if_spec_name_not_in_catalogue(self):
         pickles = SpectralLibrary("Pickles")
-        with pytest.raises(AttributeError):
+        with pytest.raises(ValueError):
             pickles.ATV
 
     def test_returns_arrays_with_return_style_set_to_array(self):
@@ -54,3 +59,11 @@ class TestGetAttr:
         spec = pickles.A0V
         assert isinstance(spec, SourceSpectrum)
 
+    def test_also_works_for_getitem(self):
+        pickles = SpectralLibrary("Pickles")
+        spec = pickles["A0V"]
+        assert isinstance(spec, fits.BinTableHDU)
+
+    def test_throws_for_invalid_library_name(self):
+        with pytest.raises(ValueError):
+            SpectralLibrary("bogus")

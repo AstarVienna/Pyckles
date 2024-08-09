@@ -1,5 +1,6 @@
-import warnings
-import numpy as np
+# -*- coding: utf-8 -*-
+"""Main module."""
+
 from astropy.table import Table
 from astropy import units as u
 
@@ -8,11 +9,11 @@ from .utils import load_catalog
 
 class SpectralLibrary:
     """
-    A container for a library of spectra
+    A container for a library of spectra.
 
-    Holds and returns spectra from various catalogues in various python-friendly
-    formats, such as: ``synphot.SourceSpectrum``, ``astropy.Quantity``,
-    ``numpy.ndarray``, and ``fits.BinTableHDU``
+    Holds and returns spectra from various catalogues in various
+    "python-friendly" formats, such as: ``synphot.SourceSpectrum``,
+    ``astropy.Quantity``, ``numpy.ndarray``, and ``fits.BinTableHDU``
 
     Spectra can be accessed by using the attribute syntax::
 
@@ -23,7 +24,7 @@ class SpectralLibrary:
 
         >>> spec_lib["A0V"]
 
-    The returned spectrum is formatted according to the ``meta["return_style"]``
+    The returned spectrum is formatted according to ``meta["return_style"]``
     parameter::
 
         >>> spec_lib.meta["return_style"] = 'fits'
@@ -44,10 +45,10 @@ class SpectralLibrary:
         ``astropy.utils.data.clear_download_cache()``
 
     return_style : str
-        - ``fits``: Returns the original FITS BinTableHDU object
-        - ``synphot``: Returns a ``synphot.SourceSpectrum`` object
-        - ``quantity``: Returns wavelength and flux as ``astropy.Quantity``
-        - ``array``: Returns wavelength and flux as ``numpy.ndarray``
+        - "fits": Returns the original FITS BinTableHDU object
+        - "synphot": Returns a ``synphot.SourceSpectrum`` object
+        - "quantity": Returns wavelength and flux as ``astropy.Quantity``
+        - "array": Returns wavelength and flux as ``numpy.ndarray``
 
     Examples
     --------
@@ -79,6 +80,7 @@ class SpectralLibrary:
         <synphot.spectrum.SourceSpectrum at 0x251800272e8>
 
     """
+
     def __init__(self, catalog_name=None, **kwargs):
 
         self.catalog_name = catalog_name
@@ -92,43 +94,38 @@ class SpectralLibrary:
         self.load(catalog_name)
 
     def load(self, catalog_name):
-        """ Loads the catalogue for a valid string ``catalog_name`` """
-        if catalog_name is not None:
-            self.catalog = load_catalog(catalog_name, self.meta["use_cache"])
-            if self.catalog is not None:
-                self.table = Table(self.catalog[1].data)
-            else:
-                warnings.warn("Catalogue '{}' could not be loaded"
-                              "".format(catalog_name))
+        """Load the catalogue for a valid string ``catalog_name``."""
+        if catalog_name is None:
+            return  # TODO: is this really wise?
+
+        self.catalog = load_catalog(catalog_name, self.meta["use_cache"])
+        # pylint: disable=maybe-no-member
+        self.table = Table(self.catalog[1].data)
+        self.table.add_index("name", unique=True)
 
     @property
     def available_spectra(self):
+        """Return table column containing all spectra name in the library."""
         return self.table["name"]
 
     def __getattr__(self, item):
-        """Looks for item in the 'name' column of self.table"""
-        spec = None
-        if item in self.table["name"]:
-            item_ii = np.where(self.table["name"] == item)[0]
-            if len(item_ii) == 1:
-                ext = self.table["ext"][item_ii[0]]
-                spec = spectrum_from_hdu(self.catalog[ext],
-                                         self.meta["return_style"])
-            else:
-                print("Cannot return spectrum for ambiguous name: {}"
-                      "".format(item))
-        else:
-            raise AttributeError
+        """Look for `item` in the 'name' column of `self.table`."""
+        try:
+            ext = int(self.table.loc[item]["ext"])
+        except KeyError as err:
+            raise ValueError(f"No spectrum found for name '{item}'") from err
 
+        spec = spectrum_from_hdu(self.catalog[ext], self.meta["return_style"])
         return spec
 
     def __getitem__(self, item):
+        """Forward to __getattr__."""
         return self.__getattr__(item)
 
 
 def spectrum_from_hdu(hdu, return_type="fits"):
     """
-    Converts a BinTableHDU into the required return_type format
+    Convert a ``BinTableHDU`` into the required `return_type` format.
 
     Parameters
     ----------
@@ -154,18 +151,19 @@ def spectrum_from_hdu(hdu, return_type="fits"):
     flux_unit = u.Unit(hdu.header["TUNIT2"])
 
     if return_type.lower() == "quantity":
-        # only compatible with py >= 3.5 and astropy >= 3.1
-        # spec = [wave << wave_unit, flux << flux_unit]
-        spec = [u.Quantity(wave, wave_unit, copy=False),
-                u.Quantity(flux, flux_unit, copy=False)]
-    elif return_type.lower() == "array":
-        spec = [wave, flux]
-    elif return_type.lower() == "synphot":
+        return wave << wave_unit, flux << flux_unit
+
+    if return_type.lower() == "array":
+        return wave, flux
+
+    if return_type.lower() == "synphot":
+        # Import here because synphot is an extra (optional) dependency
         from synphot import Empirical1D, SourceSpectrum
-        spec = SourceSpectrum(Empirical1D,
-                              points=u.Quantity(wave, wave_unit, copy=False),
-                              lookup_table=u.Quantity(flux, flux_unit,
-                                                      copy=False))
+        spec = SourceSpectrum(
+            Empirical1D,
+            points=(wave << wave_unit),
+            lookup_table=(flux << flux_unit)
+        )
     else:
         spec = hdu
 
