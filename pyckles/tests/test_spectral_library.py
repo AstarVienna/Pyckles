@@ -70,7 +70,6 @@ class TestGetAttr:
 
 
 @pytest.mark.webtest
-@pytest.mark.xfail
 def test_strips_whitespace():
     pickles = SpectralLibrary("Pickles")
     assert "M25V" in pickles.available_spectra
