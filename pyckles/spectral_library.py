@@ -46,10 +46,10 @@ class SpectralLibrary:
         ``astropy.utils.data.clear_download_cache()``
 
     return_style : str
-        - ``fits``: Returns the original FITS BinTableHDU object
-        - ``synphot``: Returns a ``synphot.SourceSpectrum`` object
-        - ``quantity``: Returns wavelength and flux as ``astropy.Quantity``
-        - ``array``: Returns wavelength and flux as ``numpy.ndarray``
+        - "fits": Returns the original FITS BinTableHDU object
+        - "synphot": Returns a ``synphot.SourceSpectrum`` object
+        - "quantity": Returns wavelength and flux as ``astropy.Quantity``
+        - "array": Returns wavelength and flux as ``numpy.ndarray``
 
     Examples
     --------
@@ -107,6 +107,7 @@ class SpectralLibrary:
 
     @property
     def available_spectra(self):
+        """Return table column containing all spectra name in the library."""
         return self.table["name"]
 
     def __getattr__(self, item):
@@ -120,6 +121,7 @@ class SpectralLibrary:
         return spec
 
     def __getitem__(self, item):
+        """Forward to __getattr__."""
         return self.__getattr__(item)
 
 
