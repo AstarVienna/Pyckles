@@ -69,6 +69,7 @@ class TestGetAttr:
             SpectralLibrary("bogus")
 
 
+@pytest.mark.webtest
 @pytest.mark.xfail
 def test_strips_whitespace():
     pickles = SpectralLibrary("Pickles")

@@ -101,6 +101,7 @@ class SpectralLibrary:
         self.catalog = load_catalog(catalog_name, self.meta["use_cache"])
         # pylint: disable=maybe-no-member
         self.table = Table(self.catalog[1].data)
+        self.table["name"] = [name.strip() for name in self.table["name"]]
         self.table.add_index("name", unique=True)
 
     @property
