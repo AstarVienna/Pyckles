@@ -67,3 +67,10 @@ class TestGetAttr:
     def test_throws_for_invalid_library_name(self):
         with pytest.raises(ValueError):
             SpectralLibrary("bogus")
+
+
+@pytest.mark.webtest
+def test_strips_whitespace():
+    pickles = SpectralLibrary("Pickles")
+    assert "M25V" in pickles.available_spectra
+    assert "M25V   " not in pickles.available_spectra
