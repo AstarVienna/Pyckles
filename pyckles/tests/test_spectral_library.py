@@ -63,3 +63,7 @@ class TestGetAttr:
         pickles = SpectralLibrary("Pickles")
         spec = pickles["A0V"]
         assert isinstance(spec, fits.BinTableHDU)
+
+    def test_throws_for_invalid_library_name(self):
+        with pytest.raises(ValueError):
+            SpectralLibrary("bogus")

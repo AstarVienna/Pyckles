@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """Main module."""
 
-import warnings
 from astropy.table import Table
 from astropy import units as u
 
@@ -96,14 +95,13 @@ class SpectralLibrary:
 
     def load(self, catalog_name):
         """Load the catalogue for a valid string ``catalog_name``."""
-        if catalog_name is not None:
-            self.catalog = load_catalog(catalog_name, self.meta["use_cache"])
-            if self.catalog is not None:
-                # pylint: disable=maybe-no-member
-                self.table = Table(self.catalog[1].data)
-                self.table.add_index("name", unique=True)
-            else:
-                warnings.warn(f"Catalogue '{catalog_name}' could not be loaded")
+        if catalog_name is None:
+            return  # TODO: is this really wise?
+
+        self.catalog = load_catalog(catalog_name, self.meta["use_cache"])
+        # pylint: disable=maybe-no-member
+        self.table = Table(self.catalog[1].data)
+        self.table.add_index("name", unique=True)
 
     @property
     def available_spectra(self):
