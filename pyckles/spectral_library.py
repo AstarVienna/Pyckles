@@ -35,15 +35,10 @@ class SpectralLibrary:
     Parameters
     ----------
     catalog_name : str
-        The name of the spectral catalogue. See ``get_catalog_list``
+        The name of the spectral catalogue. See ``pyckles.catalogs``
 
     Keyword arguments
     -----------------
-    use_cache : bool
-        Default is True. If False, re-downloads the catalogue from the server
-        Note: if you need to update the catalogue just once, call
-        ``astropy.utils.data.clear_download_cache()``
-
     return_style : str
         - "fits": Returns the original FITS BinTableHDU object
         - "synphot": Returns a ``synphot.SourceSpectrum`` object
@@ -82,15 +77,11 @@ class SpectralLibrary:
     """
 
     def __init__(self, catalog_name=None, **kwargs):
-
         self.catalog_name = catalog_name
         self.catalog = None
         self.table = None
 
-        self.meta = {"use_cache": True,
-                     "return_style": "fits"}
-        self.meta.update(kwargs)
-
+        self.meta = {"return_style": "fits"} | kwargs
         self.load(catalog_name)
 
     def load(self, catalog_name):
@@ -98,7 +89,7 @@ class SpectralLibrary:
         if catalog_name is None:
             return  # TODO: is this really wise?
 
-        self.catalog = load_catalog(catalog_name, self.meta["use_cache"])
+        self.catalog = load_catalog(catalog_name)
         # pylint: disable=maybe-no-member
         self.table = Table(self.catalog[1].data)
         self.table["name"] = [name.strip() for name in self.table["name"]]

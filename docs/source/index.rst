@@ -66,10 +66,10 @@ Which spectra are available
 .. note:: The package was originally intended only for the Pickles catalogue,
    but it now also has access to the **Brown (2014)** galaxy spectra catalogue
 
-To list which catalogues are available, call ``get_catalog_list``::
+To list which catalogues are available, access ``pyckles.catalogs``::
 
     >>> import pyckles
-    >>> pyckles.get_catalog_list()
+    >>> pyckles.catalogs
     <Table length=2>
      name    type        filename
      str7    str7         str19

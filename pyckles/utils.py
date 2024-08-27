@@ -1,51 +1,36 @@
 # -*- coding: utf-8 -*-
 """Utility functions."""
 
-from astropy.io import fits, ascii as ascii_io
-from astropy.utils.data import download_file
+from pathlib import Path
+
+from astropy.io import fits
+from astropy.table import Table
+
+import pooch
 
 
-SERVER_URL = "https://scopesim.univie.ac.at/pyckles/"
+catalogs = Table.read(Path(__file__).parent / "index.dat", format="ascii")
+catalogs.add_index("name", unique=True)
 
 
-def get_catalog_list(use_cache=True):
-    """
-    Return a list of catalogues based on the server index file.
-
-    Parameters
-    ----------
-    use_cache : bool
-        Read a local copy (True) or get the list from the server (False)
-
-    Returns
-    -------
-    catalogs : astropy.Table
-        A table with information about the available catalogues
-
-    """
-    fname = download_file(SERVER_URL+"index.dat", cache=use_cache)
-    catalogs = ascii_io.read(fname)
-    catalogs.add_index("name", unique=True)
-    return catalogs
+retriever = pooch.create(
+    path=(Path.home() / ".astar/pyckles"),
+    base_url="https://scopesim.univie.ac.at/pyckles/",
+    registry=dict(catalogs[["filename", "hash"]].iterrows()),
+    retry_if_failed=3,
+    # The name of an environment variable that can overwrite the path
+    env="ASTAR_CACHE_DIR",
+)
 
 
-def load_catalog(cat_name, use_cache=True):
+def load_catalog(cat_name):
     """
     Load a catalogue file into memory.
-
-    If ``use_cache=True`` a local copy of the catalogue FITS file is loaded,
-    otherwise the catalogue is downloaded from the server.
-
-    To refresh the local copy of the catalogue file, call the ``astropy``
-    function ``astropy.utils.data.clear_download_cache()``
 
     Parameters
     ----------
     cat_name : str
         A valid catalogue name
-
-    use_cache : bool
-        Default is True. If False, the catalogue file is fetched from the server
 
     Returns
     -------
@@ -54,19 +39,18 @@ def load_catalog(cat_name, use_cache=True):
         information
 
     """
-    cat_tbl = get_catalog_list(use_cache=use_cache)
-
     try:
-        cat_filename = cat_tbl.loc[cat_name.lower()]["filename"]
+        cat_filename = catalogs.loc[cat_name.lower()]["filename"]
     except KeyError as err:
         raise ValueError(
-            f"No catalogues were found containing: '{cat_name}' \n {cat_tbl}"
+            f"No catalogues were found containing: '{cat_name}' \n"
+            f"Available catalogs:\n{catalogs[['name', 'type']]}"
         ) from err
 
     # unique in index should take care of potential duplicates, however check
     assert isinstance(cat_filename, str), "Duplicates in cat name."
 
-    cat_path = download_file(SERVER_URL+cat_filename, cache=use_cache)
+    cat_path = retriever.fetch(cat_filename)
 
     # TODO: should use context manager for file open...
     cat = fits.open(cat_path)
