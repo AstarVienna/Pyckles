@@ -6,12 +6,9 @@ from astropy.io import fits
 import pyckles as pyk
 
 
-@pytest.mark.webtest
 class TestGetCatalogList:
-    def test_returns_list_of_catalogs_on_server(self):
-        cat_list = pyk.get_catalog_list()
-        print(cat_list)
-        assert "pickles98_full.fits" in cat_list["filename"]
+    def test_returns_list_of_catalogs_in_index(self):
+        assert "pickles98_full.fits" in pyk.catalogs["filename"]
 
 
 @pytest.mark.webtest
