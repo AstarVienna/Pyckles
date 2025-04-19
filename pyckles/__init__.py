@@ -3,4 +3,7 @@ from .spectral_library import SpectralLibrary
 
 from importlib import metadata
 
-__version__ = metadata.version(__package__)
+try:
+    __version__ = metadata.version(__package__)
+except metadata.PackageNotFoundError:
+    __version__ = "undetermined"
