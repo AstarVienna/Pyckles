@@ -1,3 +1,20 @@
+# Version 0.4.1
+**2025-05-23**
+
+## What's Changed
+### Dependency Changes
+* Bump jinja2 from 3.1.4 to 3.1.5 by @dependabot in https://github.com/AstarVienna/Pyckles/pull/17
+* Bump pytest and pytest-cov to match ScopeSim by @teutoburg in https://github.com/AstarVienna/Pyckles/pull/19
+* Bump jinja2 from 3.1.5 to 3.1.6 by @dependabot in https://github.com/AstarVienna/Pyckles/pull/20
+### Other Changes
+* Fail gracefully if Pyckles is not properly installed. by @hugobuddel in https://github.com/AstarVienna/Pyckles/pull/21
+
+## New Contributors
+* @dependabot made their first contribution in https://github.com/AstarVienna/Pyckles/pull/17
+
+**Full Changelog**: https://github.com/AstarVienna/Pyckles/compare/v0.4.0...v0.4.1
+
+
 # Version 0.4.0
 **2024-10-23**
 
