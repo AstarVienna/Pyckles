@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "Pyckles"
-version = "0.4.1b0"
+version = "0.4.1rc0"
 description = "Simple interface to the Pickles 1998 stellar spectra catalogue"
 readme = "README.md"
 license = "GPL-3.0-or-later"
