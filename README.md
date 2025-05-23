@@ -4,6 +4,7 @@ A super lightweight interface to load spectra from the Pickles 1998 catalogue
 [![Tests](https://github.com/AstarVienna/Pyckles/actions/workflows/tests.yml/badge.svg)](https://github.com/AstarVienna/Pyckles/actions/workflows/tests.yml)
 [![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)
 ![dev version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FAstarVienna%2FPyckles%2Fmain%2Fpyproject.toml&query=%24.tool.poetry.version&label=dev%20version&color=teal)
+![GitHub Release Date](https://img.shields.io/github/release-date/AstarVienna/Pyckles)
 
 [![Documentation Status](https://readthedocs.org/projects/Pyckles/badge/?version=latest)](https://pyckles.readthedocs.io/)
 [![codecov](https://codecov.io/gh/AstarVienna/Pyckles/graph/badge.svg)](https://codecov.io/gh/AstarVienna/Pyckles)
