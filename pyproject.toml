@@ -35,7 +35,7 @@ documentation = "https://pyckles.readthedocs.io/"
 [tool.poetry.group.test.dependencies]
 pytest = "^8.3.5"
 pytest-cov = "^6.0.0"
-numpy = ">=1.26.4, <2.0.0"
+numpy = ">=1.26.4, <2.3.0"
 
 [tool.poetry.group.docs]
 optional = true
@@ -44,7 +44,7 @@ optional = true
 sphinx = ">=5.3, <8.0"
 sphinx-book-theme = "^1.1.0"
 sphinxcontrib-apidoc = ">=0.4, <0.6"
-numpy = ">=1.26.4, <2.0.0"
+numpy = ">=1.26.4, <2.3.0"
 numpydoc = "^1.6.0"
 matplotlib = "^3.10.1"
 
