@@ -1688,4 +1688,4 @@ syn = ["synphot"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10, <3.13"
-content-hash = "93cff9bc94b4d38f704a0f0b1f6bf72ab1ccb75f7401c3cf91db2e4e4855fbaf"
+content-hash = "b9a2c2adf4f726253e07d993c9e16801ac833dfdd49eac6896103ea475443a8d"
