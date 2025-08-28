@@ -43,7 +43,7 @@ optional = true
 [tool.poetry.group.docs.dependencies]
 sphinx = ">=5.3, <8.0"
 sphinx-book-theme = "^1.1.0"
-sphinxcontrib-apidoc = ">=0.4, <0.6"
+sphinxcontrib-apidoc = ">=0.4,<0.7"
 numpy = ">=1.26.4, <2.3.0"
 numpydoc = "^1.6.0"
 matplotlib = "^3.10.1"
