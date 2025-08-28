@@ -34,7 +34,7 @@ documentation = "https://pyckles.readthedocs.io/"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^8.3.5"
-pytest-cov = "^6.0.0"
+pytest-cov = "^6.2.1"
 numpy = ">=1.26.4, <2.3.0"
 
 [tool.poetry.group.docs]
