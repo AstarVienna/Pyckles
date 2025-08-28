@@ -1445,14 +1445,14 @@ test = ["beautifulsoup4", "coverage", "myst-nb", "pytest", "pytest-cov", "pytest
 
 [[package]]
 name = "sphinxcontrib-apidoc"
-version = "0.4.0"
+version = "0.6.0"
 description = "A Sphinx extension for running 'sphinx-apidoc' on each build"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["docs"]
 files = [
-    {file = "sphinxcontrib-apidoc-0.4.0.tar.gz", hash = "sha256:fe59d15882472aa93c2737afbdea6bedb34ce35cbd34aa4947909f5df1500aad"},
-    {file = "sphinxcontrib_apidoc-0.4.0-py3-none-any.whl", hash = "sha256:18b9fb0cd4816758ec5f8be41c64f8924991dd40fd7b10e666ec9eed2800baff"},
+    {file = "sphinxcontrib_apidoc-0.6.0-py3-none-any.whl", hash = "sha256:668592f933eee858f3bc0d0810d56d50dfa0a70f650a2faaaad501b9a3504633"},
+    {file = "sphinxcontrib_apidoc-0.6.0.tar.gz", hash = "sha256:329b9810d66988f48e127a6bd18cc8efbbd1cd20b8deb4691a35738af49ad88d"},
 ]
 
 [package.dependencies]
@@ -1688,4 +1688,4 @@ syn = ["synphot"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10, <3.13"
-content-hash = "b9a2c2adf4f726253e07d993c9e16801ac833dfdd49eac6896103ea475443a8d"
+content-hash = "0e07dd3fcb53eeff23f856478f6880cbcaac0c2b9002d3f9f591de27e6145dcb"
