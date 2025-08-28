@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -51,7 +51,7 @@ jobs:
     if: needs.build.result == 'success'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -67,7 +67,7 @@ jobs:
         run: echo "## Publishing $(poetry version) to PyPI" >> $GITHUB_STEP_SUMMARY
 
       - name: Retrieve distribution files
-        uses: actions/download-artifact@v4.1.7
+        uses: actions/download-artifact@v5
         with:
           name: distribution
           path: dist/
