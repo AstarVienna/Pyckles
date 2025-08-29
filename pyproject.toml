@@ -33,7 +33,7 @@ documentation = "https://pyckles.readthedocs.io/"
 "Bug Tracker" = "https://github.com/AstarVienna/Pyckles/issues"
 
 [tool.poetry.group.test.dependencies]
-pytest = "^8.3.5"
+pytest = "^8.4.1"
 pytest-cov = "^6.2.1"
 numpy = ">=1.26.4, <2.3.0"
 
