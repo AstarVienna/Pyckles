@@ -1,6 +1,6 @@
 [project]
 name = "Pyckles"
-version = "0.4.2a0"
+version = "0.5.0a0"
 description = "Simple interface to the Pickles 1998 stellar spectra catalogue."
 readme = "README.md"
 license = {text = "GPL-3.0-or-later"}
