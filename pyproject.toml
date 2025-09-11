@@ -12,12 +12,8 @@ maintainers = [
     { name = "Hugo Buddelmeijer", email = "hugo@buddelmeijer.nl" },
     { name = "Fabian Haberhauer", email = "fabian.haberhauer@univie.ac.at" },
 ]
-classifiers = [
-    "Operating System :: OS Independent",
-    "Intended Audience :: Science/Research",
-    "Topic :: Scientific/Engineering :: Astronomy",
-]
 keywords = [ "astronomy" ]
+dynamic = [ "classifiers" ]
 requires-python = ">=3.10, <3.13"
 dependencies = [
     "astropy (>=6.1.5,<7.0.0)",
@@ -28,9 +24,18 @@ dependencies = [
 syn = [ "synphot>=1.5.0,<2.0.0" ]
 
 [project.urls]
-repository = "https://github.com/AstarVienna/Pyckles/"
-documentation = "https://pyckles.readthedocs.io/"
+Repository = "https://github.com/AstarVienna/Pyckles/"
+Documentation = "https://pyckles.readthedocs.io/"
 "Bug Tracker" = "https://github.com/AstarVienna/Pyckles/issues"
+Changelog = "https://github.com/AstarVienna/skycalc_ipy/releases"
+
+
+[tool.poetry]
+classifiers = [
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Astronomy",
+]
 
 [tool.poetry.group.test.dependencies]
 pytest = "^8.4.1"
