@@ -27,7 +27,7 @@ syn = [ "synphot>=1.5.0,<2.0.0" ]
 Repository = "https://github.com/AstarVienna/Pyckles/"
 Documentation = "https://pyckles.readthedocs.io/"
 "Bug Tracker" = "https://github.com/AstarVienna/Pyckles/issues"
-Changelog = "https://github.com/AstarVienna/skycalc_ipy/releases"
+Changelog = "https://github.com/AstarVienna/Pyckles/blob/main/CHANGELOG.md"
 
 
 [tool.poetry]
