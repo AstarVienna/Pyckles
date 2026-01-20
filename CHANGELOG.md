@@ -1,3 +1,35 @@
+# Version 0.6.0
+**2026-01-20**
+
+Add support for Python 3.14, keep dependencies up-to-date.
+
+## What's Changed
+### Dependency Changes
+* Bump packaging from 24.1 to 25.0 by @teutoburg in https://github.com/AstarVienna/Pyckles/pull/39
+* Bump pytest-cov from 6.2.1 to 7.0.0 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/40
+* Bump pytest from 8.4.1 to 8.4.2 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/41
+* Bump matplotlib from 3.10.1 to 3.10.6 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/43
+* Bump numpydoc from 1.6.0 to 1.9.0 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/42
+* Bump actions/upload-artifact from 4 to 5 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/44
+* Bump actions/download-artifact from 5 to 6 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/45
+* Bump matplotlib from 3.10.6 to 3.10.7 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/46
+* Bump sphinx-book-theme from 1.1.0 to 1.1.4 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/47
+* Bump synphot from 1.5.0 to 1.6.0 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/48
+* Bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/49
+* Bump fonttools from 4.53.1 to 4.61.0 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/50
+* Bump urllib3 from 2.5.0 to 2.6.0 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/51
+* Bump actions/upload-artifact from 5 to 6 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/53
+* Bump actions/download-artifact from 6 to 7 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/52
+* Bump synphot from 1.6.0 to 1.6.1 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/54
+* Bump numpydoc from 1.9.0 to 1.10.0 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/55
+* Bump matplotlib from 3.10.7 to 3.10.8 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/56
+* Bump pytest from 8.4.2 to 9.0.2 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/57
+* Bump urllib3 from 2.6.0 to 2.6.3 by @dependabot[bot] in https://github.com/AstarVienna/Pyckles/pull/58
+* Allow Python 3.14, sync and update dependencies by @teutoburg in https://github.com/AstarVienna/Pyckles/pull/59
+
+**Full Changelog**: https://github.com/AstarVienna/Pyckles/compare/v0.5.0...v0.6.0
+
+
 # Version 0.5.0
 **2025-09-12**
 
