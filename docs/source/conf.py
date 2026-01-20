@@ -33,7 +33,6 @@ import os
 # ones.
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.doctest',
-              'sphinx.ext.intersphinx',
               'sphinx.ext.todo',
               'sphinx.ext.mathjax',
               'sphinx.ext.viewcode',
@@ -186,9 +185,3 @@ texinfo_documents = [
      author, 'pyckles', 'Basic interface to Pickles 1998 stellar catalogue',
      'Miscellaneous'),
 ]
-
-
-
-
-# Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/': None}
