@@ -47,7 +47,7 @@ classifiers = [
 
 [tool.poetry.group.test.dependencies]
 pytest = "^9.0.2"
-pytest-cov = "^7.0.0"
+pytest-cov = "^7.1.0"
 numpy = ">=1.26.4, <3.0.0"
 
 
