@@ -3326,39 +3326,39 @@ tests = ["cython", "littleutils", "pygments", "pytest", "typeguard"]
 
 [[package]]
 name = "synphot"
-version = "1.6.1"
+version = "1.7.0"
 description = "Synthetic photometry"
 optional = true
 python-versions = ">=3.10"
 groups = ["main"]
 markers = "extra == \"syn\""
 files = [
-    {file = "synphot-1.6.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:0ac5d550f8e906685d6ae842a84376e315c4689c1b97780551256d84246c1a72"},
-    {file = "synphot-1.6.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:d1e46fe6da16c1c4bbd7aeecb1995ddb56f67f8f255af69f9e840595acfeaf58"},
-    {file = "synphot-1.6.1-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:b458023f80c5e703bee8098ff5a408ef78b55e35dc786d05bfd3c44792a6e6b7"},
-    {file = "synphot-1.6.1-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:58fe1cd739ce365fdb13892b057eb8eab89f955d21d8e0444676df15cd32bb5a"},
-    {file = "synphot-1.6.1-cp310-cp310-win_amd64.whl", hash = "sha256:66818542490b8b7c6edf1c7650da80d2ad754a91f2392cfc2124ba8c08d043f2"},
-    {file = "synphot-1.6.1-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:ca893e5d694ac7bef358a30c5933fdec3a06a006e60567acc6858827778ff01b"},
-    {file = "synphot-1.6.1-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:ad0ea8ae1ed245d42d265931f30d7f6c6ed62ab6639c29e3d55b6d03103e61d2"},
-    {file = "synphot-1.6.1-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:26fd407171f4fb01a10ddb8fe7215d92e6c9d4bcef2c4a38cbc8a848e30a6722"},
-    {file = "synphot-1.6.1-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:434fd8969c389c9cdc6dfe49f915ba2144218e7b8e3149125c6ecf42ccd279d2"},
-    {file = "synphot-1.6.1-cp311-cp311-win_amd64.whl", hash = "sha256:a9f751fc55c5ff137d3010f3a4cb5436b4d07ff5aac9562cc342bdd53db0dbf6"},
-    {file = "synphot-1.6.1-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:38de46c7eaa98bb8173aa5c8e58bdc5ef68b8da2c939b49d4f847761178b9613"},
-    {file = "synphot-1.6.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:b706cb326fbe95cfbf43345c6a28244c026204f9fcaf532d6268b35ec53d50e1"},
-    {file = "synphot-1.6.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:f956033a3218c4cda459878dc22b9ec7e240b09efd5bef0881b0addb59d51faf"},
-    {file = "synphot-1.6.1-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:e09b21fed5fe83072fb7fa4f03e83f862224e4e12224df8b909a800563255201"},
-    {file = "synphot-1.6.1-cp312-cp312-win_amd64.whl", hash = "sha256:e0948891ef30264a6bbe750bfdc582cb6e6de2f1b8ce9740348cc2815436c941"},
-    {file = "synphot-1.6.1-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:2b551a8194cbca165d252b8b232364a5aff0b1e2751313b294c76bcb7fa213b8"},
-    {file = "synphot-1.6.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:f1681f9fe06aeaaa0044fa98801bf0fffb521b823c9b46895b7155b4da74f075"},
-    {file = "synphot-1.6.1-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:c120eb4d196819592b900da44f6f67bce66de248d30ee6376b2df21d98656bff"},
-    {file = "synphot-1.6.1-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:fdf41e8e4c2f443f73555a2e728436c987b1d0a23baeaaa477c40e4364e4af61"},
-    {file = "synphot-1.6.1-cp313-cp313-win_amd64.whl", hash = "sha256:212ad95cb1f664d593ccf6a91573e8dca46fe85b260da3c31883df346c1f586f"},
-    {file = "synphot-1.6.1-cp314-cp314-macosx_10_15_x86_64.whl", hash = "sha256:1d61432c06fb26c6bd2a294edc4fee09e992d8e2b4f847140a5c97e8fa4d67f5"},
-    {file = "synphot-1.6.1-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:acb6691b6ab0e5b7fa23e1a98e4bf778a8ab18c19f73f5e02d4311537a01eaa9"},
-    {file = "synphot-1.6.1-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:8ce8898237eb264453793ecd95b6e44f8f7d0516e753b029eee245e642de640c"},
-    {file = "synphot-1.6.1-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:0e7f395226e1103c3469a5747fdaf5e13036e6228467a9c39b895acd811ab163"},
-    {file = "synphot-1.6.1-cp314-cp314-win_amd64.whl", hash = "sha256:bbcb7f68384b6a6c1981109df9720406adfdd15b455b12a3bd88d082a9832bbd"},
-    {file = "synphot-1.6.1.tar.gz", hash = "sha256:eb7c63c450c6cc5ef8db0c9dd41cd95a4647c95f4769acf1d30bb89061a8358b"},
+    {file = "synphot-1.7.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:8cf368c83064f9131a31c19ebc2cd4843888d8447d99fc407625e186009235fa"},
+    {file = "synphot-1.7.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:5b2a703ddfd9f4136c9c97d4c96631a05caefbf08015166b2a3abcdfa8648db0"},
+    {file = "synphot-1.7.0-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:7560121f6207cba25cbce4573f23cb0163594a72e893edcf82aaa121dee468bc"},
+    {file = "synphot-1.7.0-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:5bbe1793a56fd6a7dfabb1b5bb81d3c767fec8034909a3ec7b634901f6ddc2f4"},
+    {file = "synphot-1.7.0-cp310-cp310-win_amd64.whl", hash = "sha256:e0d7798cb23442d1f6d118a9744ac509bc6b77b531ad6792066cbdc18510ed09"},
+    {file = "synphot-1.7.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:f4d8fa3681ee71e7e5b2f63d92849bed7836e099b75ac0b6489eb98b25020dde"},
+    {file = "synphot-1.7.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:39fa4ba3783ea9b04595e4692ca67e7a083cdc4da8f56e0f37c8e7401a2ce2b5"},
+    {file = "synphot-1.7.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:70c29b04495f25f8efdbb97edbd8fea716d2bafd50bc6e14cb30b95faafd0ca7"},
+    {file = "synphot-1.7.0-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:0317763976e264bcff535dc29f93b5a29300eb757629d31f04edcd0a98635901"},
+    {file = "synphot-1.7.0-cp311-cp311-win_amd64.whl", hash = "sha256:60486a6d5887e0f296c16415a73bc231d0fc0211a0543859125a94301e0e59b0"},
+    {file = "synphot-1.7.0-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:cefe738d1e807a7b79d4bee62df02411dbe25f7f4eeccd91d7b80dc51bcad7c6"},
+    {file = "synphot-1.7.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:c77ffd51ffed10dbad202c64673596d4d4f167534e1e51ad1a4b484297e1736a"},
+    {file = "synphot-1.7.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:79e959f44944200725db60925dd89bac3ef57c9ccd57ef74cd63333be215b108"},
+    {file = "synphot-1.7.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:79139f14a90c6bf6bf1a639f4b2b41f8015a9915388f26b3dac9e1e0b179df14"},
+    {file = "synphot-1.7.0-cp312-cp312-win_amd64.whl", hash = "sha256:a5dd6b012bca6244ee64e4793ffde8024999633601b94f50b077098264771f9e"},
+    {file = "synphot-1.7.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:4420f88b85276e2fe7f7a5c9e5d18bc66a49c36a55e360399e4fda75f2af4e51"},
+    {file = "synphot-1.7.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:90790ddede7354b2964f3015ae8e57344ceab2a3e1a50d76365123880f6c941e"},
+    {file = "synphot-1.7.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:6bf64e62a6a34bc4072a6f11ab9671283fa3211ea8b71a9345eb006dabb70a4d"},
+    {file = "synphot-1.7.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:e81280915f944213ec2d5f56c6d4dcaf3f59901c9aa8dac86bba1e088abd0e63"},
+    {file = "synphot-1.7.0-cp313-cp313-win_amd64.whl", hash = "sha256:5afb08da9a634af85dbbb753ba70ac468baeeff2bd02d7cb4fd08a7df4dbe701"},
+    {file = "synphot-1.7.0-cp314-cp314-macosx_10_15_x86_64.whl", hash = "sha256:7d57b670cd1e1d1a820ca32b478b62f3e2550bb1b119d3ad6c3fa894ee8e0e3a"},
+    {file = "synphot-1.7.0-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:9062121c87f4287cba8dcc29bab05bc1a1f471219760b90741f8732922baf4e7"},
+    {file = "synphot-1.7.0-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:43e18635ab59d0334f0f2f32cbc828a79851e36475a974de97fcbd332f227048"},
+    {file = "synphot-1.7.0-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:452167a1bb67354b92b28dfebd539ffa55267725dd2f0e254a18ccf55645482b"},
+    {file = "synphot-1.7.0-cp314-cp314-win_amd64.whl", hash = "sha256:1cc51eec85bcc6869a0c779200f449a2769f6ded48a76c6f24cad8498decf81b"},
+    {file = "synphot-1.7.0.tar.gz", hash = "sha256:acd0fff408008a93c43bfbaf27e7c8ccee271d644d62152e4ad2b7462619f9dc"},
 ]
 
 [package.dependencies]
