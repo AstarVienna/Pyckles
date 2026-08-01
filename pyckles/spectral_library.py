@@ -15,22 +15,24 @@ class SpectralLibrary:
     "python-friendly" formats, such as: ``synphot.SourceSpectrum``,
     ``astropy.Quantity``, ``numpy.ndarray``, and ``fits.BinTableHDU``
 
-    Spectra can be accessed by using the attribute syntax::
+    Spectra can be accessed by using the attribute syntax
 
-        >>> spec_lib = pyckles.SpectralLibrary("pickles")
-        >>> spec_lib.A0V
+    >>> import pyckles
+    >>> spec_lib = pyckles.SpectralLibrary("pickles")
+    >>> spec_lib.A0V
+    <astropy.io.fits.hdu.table.BinTableHDU object at 0x...>
 
-    or using the item syntax::
+    or using the item syntax
 
-        >>> spec_lib["A0V"]
+    >>> spec_lib["A0V"]
+    <astropy.io.fits.hdu.table.BinTableHDU object at 0x...>
 
     The returned spectrum is formatted according to ``meta["return_style"]``
-    parameter::
+    parameter
 
-        >>> spec_lib.meta["return_style"] = 'fits'
-        >>> type(spec_lib.A0V)
-        astropy.io.fits.hdu.table.BinTableHDU
-
+    >>> spec_lib.meta["return_style"] = "fits"
+    >>> type(spec_lib.A0V)
+    <class 'astropy.io.fits.hdu.table.BinTableHDU'>
 
     Parameters
     ----------
@@ -40,39 +42,56 @@ class SpectralLibrary:
     Keyword arguments
     -----------------
     return_style : str
-        - "fits": Returns the original FITS BinTableHDU object
-        - "synphot": Returns a ``synphot.SourceSpectrum`` object
-        - "quantity": Returns wavelength and flux as ``astropy.Quantity``
-        - "array": Returns wavelength and flux as ``numpy.ndarray``
+
+    - "fits": Returns the original FITS BinTableHDU object
+    - "synphot": Returns a ``synphot.SourceSpectrum`` object
+    - "quantity": Returns wavelength and flux as ``astropy.Quantity``
+    - "array": Returns wavelength and flux as ``numpy.ndarray``
 
     Examples
     --------
-    List the available spectra::
+    List the available spectra
 
-        >>> import pyckles
-        >>> spec_lib = pyckles.SpectralLibrary("pickles", return_style="quantity")
-        >>> spec_lib.available_spectra
-        <Column name='name' dtype='str5' length=131>
-          A0I
-        A0III
-         A0IV
-          ...
-        K2III
-        K3III
-        K4III
+    >>> import pyckles
+    >>> spec_lib = pyckles.SpectralLibrary("pickles", return_style="quantity")
+    >>> spec_lib.available_spectra
+    <Column name='name' dtype='str7' length=131>
+        A0I
+      A0III
+       A0IV
+        A0V
+        A2I
+        A2V
+      A3III
+        A3V
+       A4IV
+      A5III
+        A5V
+      A7III
+        ...
+      F5V_W
+      F8V_W
+      G0V_W
+    G5III_W
+      G5V_W
+    G8III_W
+    K0III_W
+    K1III_W
+    K2III_W
+    K3III_W
+    K4III_W
 
-    Get an A0V spectrum::
+    Get an A0V spectrum
 
-        >>> vega = spec_lib.A0V
-        >>> vega
-        [<Quantity [ 1150.,  1155.,  1160., ..., 24990., 24995., 25000.] Angstrom>,
-        <Quantity [0.181751, 0.203323, 0.142062, ..., 0.00699 , 0.006986, 0.006983] erg / (Angstrom cm2 s)>]
+    >>> vega = spec_lib.A0V
+    >>> vega
+    (<Quantity [ 1150.,  1155.,  1160., ..., 24990., 24995., 25000.] Angstrom>, <Quantity [0.181751, 0.203323, 0.142062, ..., 0.00699 , 0.006986, 0.006983] erg / (Angstrom s cm2)>)
 
-    Return synphot.SourceSpectrum objects instead of a list of Quantity arrays::
+    Return synphot.SourceSpectrum objects instead of a list of Quantity arrays
 
-        >>> spec_lib.meta["return_style"] = "synphot"
-        >>> spec_lib.A0V
-        <synphot.spectrum.SourceSpectrum at 0x251800272e8>
+    >>> spec_lib.meta["return_style"] = "synphot"
+    >>> spec_lib.A0V
+    <synphot.spectrum.SourceSpectrum object at 0x...>
 
     """
 
