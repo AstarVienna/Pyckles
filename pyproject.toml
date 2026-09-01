@@ -40,7 +40,7 @@ classifiers = [
 [tool.poetry.group.test.dependencies]
 pytest = "^9.0.3"
 pytest-cov = "^7.1.0"
-numpy = "^2.2.6"
+numpy = "^2.5.2"
 
 
 [tool.poetry.group.docs]
@@ -54,7 +54,7 @@ sphinxcontrib-apidoc = ">=0.6.0,<1.0"
 sphinxcontrib-mermaid = "^2.1.0"
 myst-nb = "^1.4.0"
 sphinx-issues = "^6.0.0"
-numpy = "^2.2.6"
+numpy = "^2.5.2"
 numpydoc = "^1.10.0"
 matplotlib = "^3.11.1"
 
