@@ -56,7 +56,7 @@ myst-nb = "^1.4.0"
 sphinx-issues = "^6.0.0"
 numpy = "^2.5.2"
 numpydoc = "^1.10.0"
-matplotlib = "^3.11.1"
+matplotlib = "^3.11.2"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
