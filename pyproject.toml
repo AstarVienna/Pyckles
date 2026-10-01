@@ -55,7 +55,7 @@ sphinxcontrib-mermaid = "^2.1.1"
 myst-nb = "^1.4.0"
 sphinx-issues = "^6.0.0"
 numpy = "^2.5.2"
-numpydoc = "^1.10.0"
+numpydoc = "^1.11.0"
 matplotlib = "^3.11.2"
 
 [build-system]
