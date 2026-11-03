@@ -38,7 +38,7 @@ classifiers = [
 ]
 
 [tool.poetry.group.test.dependencies]
-pytest = "^9.0.3"
+pytest = "^9.2.0"
 pytest-cov = "^7.1.0"
 numpy = "^2.5.4"
 
@@ -67,6 +67,7 @@ build-backend = "poetry.core.masonry.api"
 addopts = "--strict-markers"
 markers = [
     "webtest: marks tests as requiring network (deselect with '-m \"not webtest\"')",
+    "slow: tests that take forever",
 ]
 
 [tool.coverage.report]
