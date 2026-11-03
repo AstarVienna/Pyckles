@@ -67,6 +67,7 @@ build-backend = "poetry.core.masonry.api"
 addopts = "--strict-markers"
 markers = [
     "webtest: marks tests as requiring network (deselect with '-m \"not webtest\"')",
+    "slow: tests that take forever",
 ]
 
 [tool.coverage.report]
